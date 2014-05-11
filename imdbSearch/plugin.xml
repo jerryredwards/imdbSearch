@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Search Category"
+            id="imdbSearch.commands.category">
+      </category>
+      <command
+            name="Search by title"
+            categoryId="imdbSearch.commands.category"
+            id="imdbSearch.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="imdbSearch.commands.sampleCommand"
+            class="imdbsearch.handlers.IMDBSearch">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="imdbSearch.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="IMDB Search"
+               mnemonic="M"
+               id="imdbSearch.menus.sampleMenu">
+            <command
+                  commandId="imdbSearch.commands.sampleCommand"
+                  mnemonic="S"
+                  id="imdbSearch.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="imdbSearch.toolbars.sampleToolbar">
+            <command
+                  commandId="imdbSearch.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="imdbSearch.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
